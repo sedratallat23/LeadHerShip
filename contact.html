@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadHerShip - Contact</title>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fafafa;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #e91e63;
+      outline: none;
+    }
+    img.logo-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #e91e63aa;
+      transition: transform 0.3s ease;
+    }
+    img.logo-img:hover {
+      transform: rotate(15deg);
+    }
+    /* Navbar */
+    nav.navbar {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      font-weight: 600;
+    }
+    nav.navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      color: #e91e63;
+      user-select: none;
+    }
+    nav.navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav.navbar .nav-links li a {
+      font-size: 1rem;
+      padding: 0.25rem 0;
+      position: relative;
+      color: #555;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    nav.navbar .nav-links li a.active,
+    nav.navbar .nav-links li a:hover,
+    nav.navbar .nav-links li a:focus {
+      color: #e91e63;
+      border-bottom-color: #e91e63;
+      outline: none;
+    }
+    /* Contact Section */
+    section.contact-section {
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgb(106 27 154 / 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+      align-items: flex-start;
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+      from {
+        opacity: 0;
+      }
+    }
+    section.contact-section h2 {
+      width: 100%;
+      font-size: 2.75rem;
+      color: #6a1b9a;
+      margin-bottom: 0.25rem;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 6px rgb(164 0 109 / 0.3);
+    }
+    section.contact-section h4 {
+      width: 100%;
+      font-weight: 600;
+      color: #7b1fa2;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    form.contact-form {
+      flex: 1 1 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-width: 280px;
+    }
+    form.contact-form label {
+      font-weight: 600;
+      color: #4a148c;
+      margin-bottom: 0.25rem;
+      user-select: none;
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+      padding: 0.75rem 1rem;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      resize: vertical;
+    }
+    form.contact-form input:focus,
+    form.contact-form textarea:focus {
+      border-color: #e91e63;
+      box-shadow: 0 0 8px #e91e63aa;
+      outline: none;
+    }
+    form.contact-form button.btn {
+      margin-top: 1rem;
+      background: #e91e63;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(233,30,99,0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      align-self: start;
+      width: fit-content;
+    }
+    form.contact-form button.btn:hover,
+    form.contact-form button.btn:focus {
+      background: #ad1457;
+      box-shadow: 0 8px 20px rgba(173,20,87,0.7);
+      outline: none;
+      transform: scale(1.05);
+    }
+    .contact-info {
+      flex: 1 1 300px;
+      min-width: 280px;
+      background: #f3e5f5;
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 8px 24px rgb(106 27 154 / 0.1);
+      color: #4a148c;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+    }
+    .contact-info h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #6a1b9a;
+    }
+    .contact-info p {
+      margin: 0;
+      font-weight: 500;
+      text-align: center;
+    }
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ddd;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer p {
+      margin: 0 0 1rem;
+      font-weight: 400;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .social-icons a {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      color: #ddd;
+      transition: color 0.3s ease, transform 0.3s ease;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #444;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
+    }
+    .social-icons a:hover, .social-icons a:focus {
+      color: #e91e63;
+      background: #fff;
+      transform: scale(1.15);
+      outline: none;
+      box-shadow: 0 4px 12px rgb(233 30 99 / 0.6);
+    }
+    .social-icons svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      section.contact-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+      form.contact-form, .contact-info {
+        min-width: 100%;
+        max-width: 100%;
+      }
+      form.contact-form button.btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="contact-page">
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Primary navigation">
+      <div class="logo" aria-label="LeadHerShip logo">
+        <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
+        <span>LeadHerShip</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Us!</h2>
+      <h4>We'd love to hear from you! Send us your question or feedback anytime!</h4>
+
+      <form class="contact-form" action="#" method="POST" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email address" required autocomplete="email" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <div class="contact-info" aria-label="Contact information">
+        <h2>Our Contact Info</h2>
+        <p>Email: info.leadhership@gmail.com</p>
+        <p>Phone: +201104532241</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 LeadHerShip. All rights reserved.</p>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://www.instagram.com/leadhership.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2.25a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@leadhership.officialpage" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v12.75a3.75 3.75 0 103.75-3.75V7.5h3.75V3h-7.5z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61579122226987&mibextid=ZbWKwL" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.87v-6.98h-2.3v-2.9h2.3v-2.2c0-2.27 1.35-3.53 3.42-3.53.99 0 2.02.18 2.02.18v2.22h-1.14c-1.12 0-1.47.7-1.47 1.42v1.9h2.5l-.4 2.9h-2.1v6.98A10 10 0 0022 12z"/></svg>
+      </a>
+      <a href="https://chat.whatsapp.com/KnfWjjSE5or2XxS7nPQmLI?mode=ac_t" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12a11.94 11.94 0 001.48 6.52L0 24l5.48-1.48A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12a11.94 11.94 0 00-3.48-8.52zm-8.52 16.5a7.5 7.5 0 01-4.04-1.18l-.29-.18-3.02.82.81-2.95-.19-.3a7.5 7.5 0 1110.23 3.79 7.4 7.4 0 01-3.49.99zm3.3-4.5c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.4.09-.12.18-.46.58-.56.7-.1.12-.2.13-.38.04-.18-.09-.75-.28-1.43-.88-.53-.47-.88-1.05-.98-1.23-.1-.18-.01-.28.08-.37.08-.08.18-.2.27-.3.09-.1.12-.18.18-.3.06-.12.03-.22-.01-.31-.04-.09-.4-1- .55-1.37-.14-.36-.29-.31-.4-.31-.1 0-.22-.01-.34-.01-.12 0-.31.04-.47.22-.16.18-.62.6-.62 1.46 0 .86.64 1.7.73 1.82.09.12 1.26 1.92 3.06 2.69.43.18.76.29 1.02.37.43.13.82.11 1.13.07.34-.05 1.06-.43 1.21-.85.15-.42.15-.78.11-.85-.04-.07-.16-.12-.34-.21z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@hydyhussein" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a2.8 2.8 0 00-1.97-2c-1.74-.47-8.73-.47-8.73-.47s-6.99 0-8.73.47a2.8 2.8 0 00-1.97 2A29.5 29.5 0 001 12a29.5 29.5 0 00.2 5.8 2.8 2.8 0 001.97 2c1.74.47 8.73.47 8.73.47s6.99 0 8.73-.47a2.8 2.8 0 001.97-2A29.5 29.5 0 0024 12a29.5 29.5 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/leadherip-eg/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg
