@@ -103,7 +103,7 @@
       position: relative;
       overflow: hidden;
     }
-   section.hero::before {
+    section.hero::before {
   pointer-events: none;
 }
     @keyframes gradientShift {
@@ -317,8 +317,69 @@
       height: 20px;
       fill: currentColor;
     }
+     #menu-toggle {
+      display: none;
+}
     /* Responsive */
     @media (max-width: 768px) {
+      #menu-toggle {
+      display: none;
+      }
+
+      /*  Hamburger button */
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: #333; 
+        border-radius: 2px;
+        transition: 0.3s ease;
+      }
+
+      /*  Position nav-links off screen on mobile */
+      nav.navbar .nav-links {
+        position: fixed;
+        top: 0;
+        right: -250px; 
+        width: 250px;
+        height: 100%;
+        background: #ffffffe6; 
+        flex-direction: column;
+        padding-top: 60px;
+        transition: right 0.3s ease;
+      }
+
+      /*  Slide nav-links into view when checked */
+      #menu-toggle:checked ~ .nav-links {
+        right: 0;
+      }
+
+      /*  Hamburger → X animation */
+      #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+      }
+      #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+            .hamburger {
+        position: relative;   
+        z-index: 10001;       
+      }
+      nav.navbar .nav-links {
+        z-index: 10000;       
+      }
+      /*-------------------------------*/
       nav.navbar {
         flex-wrap: wrap;
         gap: 1rem;
@@ -351,28 +412,24 @@
 <body class="home-page">
   <header>
     <nav class="navbar" role="navigation" aria-label="Primary navigation">
-  <div class="logo" aria-label="LeadHerShip logo">
-    <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
-    <span>LeadHerShip</span>
-  </div>
-
-  <!-- Hidden checkbox toggles menu -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" />
-
-  <!-- Hamburger icon -->
-  <label for="nav-toggle" class="nav-toggle-label" tabindex="0" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <ul class="nav-links">
-    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="services.html">Programs</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+      
+      <div class="logo" aria-label="LeadHerShip logo">
+        <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
+        <span>LeadHerShip</span>
+      </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -442,9 +499,6 @@ We believe that girls aren't just the leaders of tomorrow, they are the leaders 
       </a>
       <a href="https://www.youtube.com/@hydyhussein" target="_blank" rel="noopener" aria-label="YouTube">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a2.8 2.8 0 00-1.97-2c-1.74-.47-8.73-.47-8.73-.47s-6.99 0-8.73.47a2.8 2.8 0 00-1.97 2A29.5 29.5 0 001 12a29.5 29.5 0 00.2 5.8 2.8 2.8 0 001.97 2c1.74.47 8.73.47 8.73.47s6.99 0 8.73-.47a2.8 2.8 0 001.97-2A29.5 29.5 0 0024 12a29.5 29.5 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/company/leadherip-eg/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg  viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a2.8 2.8 0 00-1.97-2c-1.74-.47-8.73-.47-8.73-.47s-6.99 0-8.73.47a2.8 2.8 0 00-1.97 2A29.5 29.5 0 001 12a29.5 29.5 0 00.2 5.8 2.8 2.8 0 001.97 2c1.74.47 8.73.47 8.73.47s6.99 0 8.73-.47a2.8 2.8 0 001.97-2A29.5 29.5 0 0024 12a29.5 29.5 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
       </a>
       <a href="https://www.linkedin.com/company/leadherip-eg/" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 448 512">

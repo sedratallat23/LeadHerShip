@@ -198,8 +198,68 @@
       height: 20px;
       fill: currentColor;
     }
+    #menu-toggle {
+      display: none;
+      }
     /* Responsive */
     @media (max-width: 600px) {
+      #menu-toggle {
+      display: none;
+      }
+
+      /*  Hamburger button */
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: #333; 
+        border-radius: 2px;
+        transition: 0.3s ease;
+      }
+
+      /*  Position nav-links off screen on mobile */
+      nav.navbar .nav-links {
+        position: fixed;
+        top: 0;
+        right: -250px; 
+        width: 250px;
+        height: 100%;
+        background: #ffffffe6; 
+        flex-direction: column;
+        padding-top: 60px;
+        transition: right 0.3s ease;
+      }
+
+      /*  Slide nav-links into view when checked */
+      #menu-toggle:checked ~ .nav-links {
+        right: 0;
+      }
+
+      /*  Hamburger → X animation */
+      #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+      }
+      #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+            .hamburger {
+        position: relative;   
+        z-index: 10001;       
+      }
+      nav.navbar .nav-links {
+        z-index: 10000;       
+      }
       nav.navbar {
         flex-wrap: wrap;
         gap: 1rem;
@@ -227,6 +287,12 @@
         <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
         <span>LeadHerShip</span>
       </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
       <ul class="nav-links">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
         <li><a href="team.html">Team</a></li>
@@ -278,6 +344,7 @@
         <h4> Inspiring Role Models</h4>
         <p>Interviews with young women who achieved their dreams, sharing real stories to inspire and motivate others.</p>
       </div>
+      
     </section>
   </main>
 
