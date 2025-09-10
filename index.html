@@ -351,17 +351,28 @@
 <body class="home-page">
   <header>
     <nav class="navbar" role="navigation" aria-label="Primary navigation">
-      <div class="logo" aria-label="LeadHerShip logo">
-        <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
-        <span>LeadHerShip</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="services.html">Programs</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="logo" aria-label="LeadHerShip logo">
+    <img src="logojpg.jpg" alt="LeadHerShip Logo" class="logo-img" />
+    <span>LeadHerShip</span>
+  </div>
+
+  <!-- Hidden checkbox toggles menu -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" />
+
+  <!-- Hamburger icon -->
+  <label for="nav-toggle" class="nav-toggle-label" tabindex="0" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="services.html">Programs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
   </header>
 
   <main>
